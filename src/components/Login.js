@@ -17,11 +17,13 @@ const Login = ({ setIsLogin }) => {
     console.log('Password:', password); // Логування введених даних
 
     try {
+      // Виконуємо запит на сервер для перевірки користувача
       const response = await axios.post('http://localhost:5000/api/login', { email, password });
       console.log('Вхід успішний:', response.data); // Логування відповіді від сервера
       setMessage(response.data.message); // Виводимо повідомлення про успішний вхід
 
-      // Якщо вхід успішний, редиректимо на нову сторінку (Dashboard)
+      // Редиректимо на сторінку homepage
+      localStorage.setItem('email', email);
       navigate('/homepage');
     } catch (error) {
       console.error('Помилка входу:', error); // Логування помилки

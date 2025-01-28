@@ -68,7 +68,7 @@ app.post('/api/login', (req, res) => {
     return res.status(400).json({ message: 'Невірний email або пароль' });
   }
 
-  return res.status(200).json({ message: 'Вхід успішний!' });
+  return res.status(200).json({ message: 'Вхід успішний' });
 });
 
 // Запуск серверу
